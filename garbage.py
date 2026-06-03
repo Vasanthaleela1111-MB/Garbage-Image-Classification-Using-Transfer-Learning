@@ -177,10 +177,12 @@ elif page == '🗑️ Image Classification':
     device = torch.device("cpu")
 
     # Load model
-    model = model.cpu()
-
-    with open("model1.pkl", "wb") as f:
-        pickle.dump(model1, f)
+    try:
+        model = pickle.load(open("model1.pkl", "rb"))
+        model.eval()
+    except Exception as e:
+        st.error(f"Model Error: {e}")
+        st.stop()
 
     # Class names
     classes = [
