@@ -178,7 +178,7 @@ elif page == '🗑️ Image Classification':
 
     # Load model
     try:
-        model = pickle.load(open("model1.pkl", map_location=device))
+        model = pickle.load(open("model1.pkl", "rb"))
         model.eval()
     except Exception as e:
         st.error(f"Model Error: {e}")
