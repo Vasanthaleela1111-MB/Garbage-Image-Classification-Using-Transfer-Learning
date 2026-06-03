@@ -174,11 +174,11 @@ elif page == '🗑️ Image Classification':
     st.write("Upload a garbage image to predict the waste category.")
 
     # Device
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cpu")
 
     # Load model
     try:
-        model = pickle.load(open("model1.pkl", "rb"))
+        model = pickle.load(open("model1.pkl", map_location=device))
         model.eval()
     except Exception as e:
         st.error(f"Model Error: {e}")
