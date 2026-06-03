@@ -234,7 +234,6 @@ elif page == '🗑️ Image Classification':
 
             output = model(img)
             probabilities = F.softmax(output, dim=1)
-            st.write(probabilities.cpu().numpy())
             confidence,predicted_index=torch.max(probabilities,dim=1)
 
         predicted_class=classes[predicted_index.item()]
