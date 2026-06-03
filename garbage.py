@@ -180,7 +180,7 @@ elif page == '🗑️ Image Classification':
     model = model.cpu()
 
     with open("model1.pkl", "wb") as f:
-        pickle.dump(model, f)
+        pickle.dump(model1, f)
 
     # Class names
     classes = [
