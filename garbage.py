@@ -32,131 +32,203 @@ with st.sidebar:
 
 if page == "📘 Project Introduction":
 
+    # ==================================================
+    # HERO SECTION
+    # ==================================================
+
     st.title("♻️ RecycleVision AI")
     st.caption("AI-Powered Smart Waste Classification System")
 
-    # Feature Cards
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.info("⚡ Real-Time Classification")
-
-    with col2:
-        st.info("🧠 Transfer Learning Models")
-
-    with col3:
-        st.info("♻️ Smart Recycling Support")
+    st.write("""
+    Transforming waste management through Deep Learning and Computer Vision.
+    Upload an image and let AI automatically identify recyclable waste categories.
+    """)
 
     st.divider()
 
-    # About Project Container
-    with st.container(border=True):
+    # ==================================================
+    # QUICK STATS
+    # ==================================================
 
-        st.subheader("📖 About the Project")
-
-        st.write("""
-        RecycleVision AI is an intelligent waste classification system
-        that automatically identifies garbage categories from uploaded images.
-
-        The application leverages Transfer Learning models such as
-        MobileNetV2, ResNet50, and EfficientNetB0 to classify waste
-        into cardboard, glass, metal, paper, plastic, and trash.
-
-        The goal is to promote sustainable recycling practices and
-        automate waste segregation using Artificial Intelligence.
-        """)
-
-    st.write("")
-
-    # Stats
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-        st.metric("Waste Classes", "6")
+        st.metric("♻️ Classes", "6")
 
     with col2:
-        st.metric("Models Used", "5")
+        st.metric("🧠 Models", "5")
 
     with col3:
-        st.metric("Framework", "PyTorch")
+        st.metric("⚙️ Framework", "PyTorch")
 
     with col4:
-        st.metric("Dataset", "TrashNet")
+        st.metric("📂 Dataset", "TrashNet")
 
     st.write("")
 
-    # Features + Technologies
-    col1, col2 = st.columns(2)
+    # ==================================================
+    # ABOUT PROJECT
+    # ==================================================
 
-    with col1:
-
-        with st.container(border=True):
-
-            st.subheader("🚀 Key Features")
-
-            st.markdown("""
-            ✅ Real-time garbage classification
-
-            ✅ Transfer Learning based prediction
-
-            ✅ Image preprocessing
-
-            ✅ High accuracy classification
-
-            ✅ Interactive dashboard
-
-            ✅ Smart recycling assistance
-            """)
-
-    with col2:
-
-        with st.container(border=True):
-
-            st.subheader("⚙️ Technologies")
-
-            st.markdown("""
-            • Python
-
-            • PyTorch
-
-            • Deep Learning (CNN)
-
-            • Transfer Learning
-
-            • Computer Vision
-
-            • Streamlit
-
-            • NumPy & OpenCV
-            """)
-
-    st.write("")
-
-    # Benefits Section
     with st.container(border=True):
 
-        st.subheader("🌍 Environmental Benefits")
+        st.subheader("📖 About RecycleVision AI")
 
-        st.success("""
-        ✔ Improves waste segregation accuracy
+        st.write("""
+        RecycleVision AI is a Deep Learning-powered garbage classification
+        system designed to automate waste segregation using image recognition.
 
-        ✔ Encourages recycling awareness
+        The application utilizes Transfer Learning models including
+        MobileNetV2, MobileNetV3, ResNet50, EfficientNetB0, and DenseNet121
+        to classify waste into six categories:
 
-        ✔ Reduces landfill waste
+        • Cardboard
+        • Glass
+        • Metal
+        • Paper
+        • Plastic
+        • Trash
 
-        ✔ Supports smart city initiatives
-
-        ✔ Promotes sustainable waste management
+        The system aims to support sustainable recycling practices
+        and improve waste management efficiency through Artificial Intelligence.
         """)
 
     st.write("")
 
-    with st.expander("📊 Dataset Information"):
+    # ==================================================
+    # PROJECT HIGHLIGHTS
+    # ==================================================
 
-        st.write("""
+    st.subheader("🚀 Project Highlights")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+
+        st.success("""
+        ### 🧠 AI Models
+
+        • MobileNetV2
+
+        • MobileNetV3
+
+        • ResNet50
+
+        • EfficientNetB0
+
+        • DenseNet121
+        """)
+
+    with col2:
+
+        st.info("""
+        ### ⚙️ Technologies
+
+        • Python
+
+        • PyTorch
+
+        • OpenCV
+
+        • NumPy
+
+        • Streamlit
+
+        • Transfer Learning
+        """)
+
+    with col3:
+
+        st.warning("""
+        ### 🌍 Benefits
+
+        • Smart Recycling
+
+        • Waste Segregation
+
+        • Faster Classification
+
+        • Sustainable Practices
+
+        • Environmental Awareness
+        """)
+
+    st.write("")
+
+    # ==================================================
+    # FEATURES CARDS
+    # ==================================================
+
+    st.subheader("✨ Core Features")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.info("""
+        ### 📤 Image Upload
+
+        Upload garbage images
+        directly through the
+        Streamlit interface.
+        """)
+
+    with col2:
+        st.info("""
+        ### 🧠 AI Prediction
+
+        Transfer Learning models
+        classify waste categories
+        with high accuracy.
+        """)
+
+    with col3:
+        st.info("""
+        ### 📊 Confidence Score
+
+        Display prediction
+        confidence for
+        better decision making.
+        """)
+
+    st.write("")
+
+    # ==================================================
+    # WORKFLOW
+    # ==================================================
+
+    with st.expander("🔄 How RecycleVision Works"):
+
+        st.markdown("""
+        **Step 1:** Upload a garbage image
+
+        ⬇️
+
+        **Step 2:** Image preprocessing
+
+        ⬇️
+
+        **Step 3:** Transfer Learning model inference
+
+        ⬇️
+
+        **Step 4:** Waste category prediction
+
+        ⬇️
+
+        **Step 5:** Confidence score generation
+        """)
+
+    # ==================================================
+    # DATASET INFORMATION
+    # ==================================================
+
+    with st.expander("📂 Dataset Information"):
+
+        st.markdown("""
         **Dataset:** TrashNet Garbage Classification Dataset
 
-        Categories:
+        **Categories**
+
         - Cardboard
         - Glass
         - Metal
@@ -164,7 +236,11 @@ if page == "📘 Project Introduction":
         - Plastic
         - Trash
 
-        Source: Kaggle / TrashNet
+        **Image Size:** 224 × 224
+
+        **Training Framework:** PyTorch
+
+        **Source:** Kaggle / TrashNet
         """)
 
 elif page == '🗑️ Image Classification':
