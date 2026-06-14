@@ -255,6 +255,7 @@ elif page == '🗑️ Image Classification':
     # Load model
     try:
         model = pickle.load(open("model1_cpu.pkl", "rb"))
+        model = model.to(device)
         model.eval()
     except Exception as e:
         st.error(f"Model Error: {e}")
@@ -277,15 +278,30 @@ elif page == '🗑️ Image Classification':
 ])
 
     # Upload image
-    uploaded_file = st.file_uploader(
-        "Upload Image",
-        type=["jpg", "jpeg", "png"]
-    )
+    tab1, tab2 = st.tabs(["📁 Upload Image", "📷 Camera"])
+
+    with tab1:
+        uploaded_file = st.file_uploader(
+            "Upload Garbage Image",
+            type=["jpg", "jpeg", "png"]
+        )
+
+    with tab2:
+        camera_file = st.camera_input(
+            "Take a Photo"
+        )
+
+    image_file = None
 
     if uploaded_file is not None:
+        image_file = uploaded_file
 
+    elif camera_file is not None:
+        image_file = camera_file
+        
+    if image_file is not None:
         # Open image
-        image = Image.open(uploaded_file).convert("RGB")
+        image = Image.open(image_file).convert("RGB")
 
         # img_np = np.array(image)
 
@@ -301,10 +317,6 @@ elif page == '🗑️ Image Classification':
 
         # Add batch dimension
         img = img.unsqueeze(0).to(device)
-
-        # Move image to device
-        img = img.to(device)
-
         # Prediction
         with torch.no_grad():
 
